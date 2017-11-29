@@ -1,13 +1,13 @@
 <?php 
-include("cabecalho.php");
-include("conect.php");
-include("banco-produtos.php");
+require_once("cabecalho.php");
+require_once("banco-produtos.php");
 
 	$id = $_POST['id'];
 	removeProduto($conexao, $id);
 
-	header("Location: produto-lista.php?removido=true");
+	$_SESSION["success"] = "Produto removido com sucesso.";
+	header("Location: produto-lista.php");
 	die();
 ?>
 
-<?php include("rodape.php");?>
+<?php require_once("rodape.php");?>

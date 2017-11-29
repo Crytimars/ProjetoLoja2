@@ -1,21 +1,12 @@
 <?php 
-include("cabecalho.php");
-include("conect.php");
-include("banco-produtos.php");
-?>
-<?php 
-	if(array_key_exists("removido", $_GET) && $_GET["removido"] == true){ 
-?>
-	<p class="alert-success">Produto removido com sucesso.</p>
-<?php
-	}
-?>
+require_once("cabecalho.php");
+require_once("banco-produtos.php");
 
-<?php
+	mostraAlerta("success");
 	$produtos = listaProdutos($conexao);	
 ?>
 
-<h1>Produtos Cadastrados</h1>
+<h1>Produtos Cadastrados</h1></br>
 <table class="table table-striped table-bordered">
 	<?php
 		foreach ($produtos as $produto) :
@@ -44,4 +35,4 @@ include("banco-produtos.php");
 </table>
 
 
-<?php include("rodape.php");?>
+<?php require_once("rodape.php");?>

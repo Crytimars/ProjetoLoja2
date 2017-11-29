@@ -1,4 +1,5 @@
 <?php
+	require_once("conect.php");
 	function listaCategorias($conexao){
 		$categorias = array();
 		$query = "SELECT * FROM categorias";

@@ -1,6 +1,11 @@
 <?php
+require_once("conect.php");
 function insereProduto($conexao, $produto, $preco, $descricao, $categoriaId, $usado){
-	$query = "INSERT into produtos (produto_nome$preco, produto_preco, produto_descricao, categoria_Id, produto_usado) 
+	$produto = mysqli_real_escape_string($conexao, $produto);
+	$descricao = mysqli_real_escape_string($conexao, $descricao);
+	$preco = mysqli_real_escape_string($conexao, $preco);
+
+	$query = "INSERT into produtos (produto_nome, produto_preco, produto_descricao, categoria_Id, produto_usado) 
 			  VALUES ('{$produto}', {$preco}, '{$descricao}', {$categoriaId}, {$usado})";
 	$resultado = mysqli_query($conexao, $query);
 	return $resultado;
